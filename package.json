@@ -1,0 +1,15 @@
+{
+  "name": "root-redirecter",
+  "version": "1.0.0",
+  "description": "Redirect /* to /, for website development",
+  "main": "root-redirector.js",
+  "bin": "root-redirector.js",
+  "repository": "git@github.com:SimonFJ20/root-redirecter.git",
+  "author": "SimonFJ20 <simonfromjakobsen@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@types/node": "^18.11.17",
+    "yargs": "^17.6.2"
+  }
+}
