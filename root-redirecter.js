@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import http from "http";
+import httpProxy from "http-proxy";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
@@ -11,14 +12,12 @@ const argv = yargs(hideBin(process.argv))
     .default("port", 3000)
     .alias("p", "port").argv;
 
-const server = http.createServer((req, res) => {
-    console.log("Redirected a request");
-    res.writeHead(302, {
-        location: `http://${argv["target"]}/`,
-    });
-    res.end();
+const proxy = httpProxy.createProxyServer({
+    target: `http://${argv["target"]}/`,
+    ignorePath: true,
+    changeOrigin: true,
 });
 
-server.listen(3000, () => {
+proxy.listen(3000, () => {
     console.log(`Root redirecter proxy on port ${argv["port"]}`);
 });

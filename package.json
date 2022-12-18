@@ -10,6 +10,7 @@
   "type": "module",
   "dependencies": {
     "@types/node": "^18.11.17",
+    "http-proxy": "^1.18.1",
     "yargs": "^17.6.2"
   }
 }
